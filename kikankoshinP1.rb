@@ -1,79 +1,125 @@
 require 'thinreports'
 
+sex = 1
+maritalstatus = 1
+criminalrecord = 1
+residingwith1 = 1
+residingwith2 = 1
+residingwith3 = 1
+residingwith4 = 1
+residingwith5 = 2
+residingwith6 = 2
+
 report = Thinreports::Report.new layout: 'kikankoshinP1'
 
 report.start_new_page
 
-report.page.item(:immigration).value('高松')
-report.page.item(:nationality).value('フィリピン')
-report.page.item(:birthYear).value('1987')
-report.page.item(:birthMonth).value('01')
-report.page.item(:birthDay).value('06')
-report.page.item(:applicantName).value('VICENTE ALOBA BAYON-ON')
-#report.page.item(:sex).value('Male')
-report.page.item(:placeOfBirth).value('フィリピン')
-#report.page.item(:maritalStatus).value('有')
-report.page.item(:occupation).value('会社員')
-report.page.item(:homeTown).value('セブ')
-report.page.item(:address).value('愛媛県新居浜市上原1丁目3-24')
-report.page.item(:telephone).value('-')
-report.page.item(:cellular).value('090-9999-9999')
-report.page.item(:passportNumber).value('P0000000A')
-report.page.item(:passportExpirationYear).value('2028')
-report.page.item(:passportExpirationMonth).value('05')
-report.page.item(:passportExpirationDay).value('05')
-report.page.item(:statusOfResidence).value('日本人の配偶者等')
-report.page.item(:periodOfStay).value('3年')
-report.page.item(:residenceExpirationYear).value('2018')
-report.page.item(:residenceExpirationMonth).value('12')
-report.page.item(:residenceExpirationDay).value('12')
-report.page.item(:residenceCard).value('PN00000000MA')
-report.page.item(:desireLength).value('5年')
-report.page.item(:reason).value('この先も引き続き日本において家族と暮らしていくため')
-#report.page.item(:criminalRecord).value('有')
-report.page.item(:criminalDetail).value('別紙参照')
-report.page.item(:familyRelationship1).value('妻')
-report.page.item(:familyName1).value('三宅朋子')
-report.page.item(:familyBirthday1).value('1980年6月2日')
-report.page.item(:familyNationality1).value('日本')
-#report.page.item(:residingWith1).value('はい')
-report.page.item(:familyCompany1).value('アイ・ジョブ・ネット㈱')
-report.page.item(:familyResidenceNumber1).value('-')
-report.page.item(:familyRelationship2).value('子')
-report.page.item(:familyName2).value('三宅莉杏')
-report.page.item(:familyBirthday2).value('2014年1月6日')
-report.page.item(:familyNationality2).value('日本・フィリピン')
-#report.page.item(:residingWith2).value('はい')
-report.page.item(:familyCompany2).value('グレース幼稚園')
-report.page.item(:familyResidenceNumber2).value('-')
-report.page.item(:familyRelationship3).value('子')
-report.page.item(:familyName3).value('三宅亜蓮')
-report.page.item(:familyBirthday3).value('2017年1月6日')
-report.page.item(:familyNationality3).value('日本・フィリピン')
-#report.page.item(:residingWith3).value('はい')
-report.page.item(:familyCompany3).value('上部のぞみ保育園')
-report.page.item(:familyResidenceNumber3).value('-')
-report.page.item(:familyRelationship4).value('義父')
-report.page.item(:familyName4).value('三宅毅')
-report.page.item(:familyBirthday4).value('1948年4月29日')
-report.page.item(:familyNationality4).value('日本')
-#report.page.item(:residingWith4).value('はい')
-report.page.item(:familyCompany4).value('㈱富士興業')
-report.page.item(:familyResidenceNumber4).value('-')
-report.page.item(:familyRelationship5).value('父')
-report.page.item(:familyName5).value('Basilio Alontaga Bayon-on')
-report.page.item(:familyBirthday5).value('1954年11月25日')
-report.page.item(:familyNationality5).value('フィリピン')
-#report.page.item(:residingWith5).value('いいえ')
-report.page.item(:familyCompany5).value('無職')
-report.page.item(:familyResidenceNumber5).value('PN11111111MA')
-report.page.item(:familyRelationship6).value('母')
-report.page.item(:familyName6).value('Alberta Aloba Bayon-on')
-report.page.item(:familyBirthday6).value('1952年11月15日')
-report.page.item(:familyNationality6).value('フィリピン')
-#report.page.item(:residingWith6).value('いいえ')
-report.page.item(:familyCompany6).value('主婦')
-report.page.item(:familyResidenceNumber6).value('PN22222222MA')
+report.page.item(:Immigration).value('高松')
+report.page.item(:Nationality).value('フィリピン')
+report.page.item(:BirthYear).value('1987')
+report.page.item(:BirthMonth).value('01')
+report.page.item(:BirthDay).value('06')
+report.page.item(:ApplicantName).value('VICENTE ALOBA BAYON-ON')
+if sex == 1
+  report.page.item(:Male).value('○')
+else
+  report.page.item(:Female).value('○')
+end
+report.page.item(:PlaceOfBirth).value('フィリピン')
+if maritalstatus == 1
+  report.page.item(:Married).value('○')
+else
+  report.page.item(:Single).value('○')
+end
+report.page.item(:Occupation).value('会社員')
+report.page.item(:HomeTown).value('セブ')
+report.page.item(:Address).value('愛媛県新居浜市上原1丁目3-24')
+report.page.item(:Telephone).value('-')
+report.page.item(:Cellular).value('090-9999-9999')
+report.page.item(:PassportNumber).value('P0000000A')
+report.page.item(:PassportExpirationYear).value('2028')
+report.page.item(:PassportExpirationMonth).value('05')
+report.page.item(:PassportExpirationDay).value('05')
+report.page.item(:StatusOfResidence).value('日本人の配偶者等')
+report.page.item(:PeriodOfStay).value('3年')
+report.page.item(:ResidenceExpirationYear).value('2018')
+report.page.item(:ResidenceExpirationMonth).value('12')
+report.page.item(:ResidenceExpirationDay).value('12')
+report.page.item(:ResidenceCard).value('PN00000000MA')
+report.page.item(:DesireLength).value('5年')
+report.page.item(:Reason).value('この先も引き続き日本において家族と暮らしていくため')
+if criminalrecord == 1
+  report.page.item(:Yes).value('○')
+else
+  report.page.item(:No).value('○')
+end
+report.page.item(:CriminalDetail).value('別紙参照')
+report.page.item(:FamilyRelationship1).value('妻')
+report.page.item(:FamilyName1).value('三宅朋子')
+report.page.item(:FamilyBirthday1).value('1980年6月2日')
+report.page.item(:FamilyNationality1).value('日本')
+if residingwith1 == 1
+  report.page.item(:Ryes1).value('○')
+else
+  report.page.item(:Rno1).value('○')
+end
+report.page.item(:FamilyCompany1).value('アイ・ジョブ・ネット㈱')
+report.page.item(:FamilyResidenceNumber1).value('-')
+report.page.item(:FamilyRelationship2).value('子')
+report.page.item(:FamilyName2).value('三宅莉杏')
+report.page.item(:FamilyBirthday2).value('2014年1月6日')
+report.page.item(:FamilyNationality2).value('日本・フィリピン')
+if residingwith2 == 1
+  report.page.item(:Ryes2).value('○')
+else
+  report.page.item(:Rno2).value('○')
+end
+report.page.item(:FamilyCompany2).value('グレース幼稚園')
+report.page.item(:FamilyResidenceNumber2).value('-')
+report.page.item(:FamilyRelationship3).value('子')
+report.page.item(:FamilyName3).value('三宅亜蓮')
+report.page.item(:FamilyBirthday3).value('2017年1月6日')
+report.page.item(:FamilyNationality3).value('日本・フィリピン')
+if residingwith3 == 1
+  report.page.item(:Ryes3).value('○')
+else
+  report.page.item(:Rno3).value('○')
+end
+report.page.item(:FamilyCompany3).value('上部のぞみ保育園')
+report.page.item(:FamilyResidenceNumber3).value('-')
+report.page.item(:FamilyRelationship4).value('義父')
+report.page.item(:FamilyName4).value('三宅毅')
+report.page.item(:FamilyBirthday4).value('1948年4月29日')
+report.page.item(:FamilyNationality4).value('日本')
+if residingwith4 == 1
+  report.page.item(:Ryes4).value('○')
+else
+  report.page.item(:Rno4).value('○')
+end
+report.page.item(:FamilyCompany4).value('㈱富士興業')
+report.page.item(:FamilyResidenceNumber4).value('-')
+report.page.item(:FamilyRelationship5).value('父')
+report.page.item(:FamilyName5).value('Basilio Alontaga Bayon-on')
+report.page.item(:FamilyBirthday5).value('1954年11月25日')
+report.page.item(:FamilyNationality5).value('フィリピン')
+if residingwith5 == 1
+  report.page.item(:Ryes5).value('○')
+else
+  report.page.item(:Rno5).value('○')
+end
+report.page.item(:FamilyCompany5).value('無職')
+report.page.item(:FamilyResidenceNumber5).value('PN11111111MA')
+report.page.item(:FamilyRelationship6).value('母')
+report.page.item(:FamilyName6).value('Alberta Aloba Bayon-on')
+report.page.item(:FamilyBirthday6).value('1952年11月15日')
+report.page.item(:FamilyNationality6).value('フィリピン')
+if residingwith6 == 1
+  report.page.item(:Ryes6).value('○')
+else
+  report.page.item(:Rno6).value('○')
+end
+report.page.item(:FamilyCompany6).value('主婦')
+report.page.item(:FamilyResidenceNumber6).value('PN22222222MA')
 
 report.generate(filename: 'kikankoshinP1.pdf')
 
