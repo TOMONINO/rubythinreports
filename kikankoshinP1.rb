@@ -9,6 +9,9 @@ residingwith3 = 1
 residingwith4 = 1
 residingwith5 = 2
 residingwith6 = 2
+personalrelationship = 1
+methodofsupport = 1
+remittancesfromabroad = 1
 
 report = Thinreports::Report.new layout: 'kikankoshinP1'
 
@@ -121,6 +124,69 @@ end
 report.page.item(:FamilyCompany6).value('主婦')
 report.page.item(:FamilyResidenceNumber6).value('PN22222222MA')
 
+report2 = Thinreports::Report.new layout: 'kikankoshinP2'
+
+report2.start_new_page
+
+if personalrelationship == 1
+  report2.page.item(:CheckSpouseJapanese).value('レ')
+elsif personalrelationship == 2
+  report2.page.item(:CheckChild).value('レ')
+elsif personalrelationship == 3
+  report2.page.item(:CheckChildAdopted).value('レ')
+elsif personalrelationship == 4
+  report2.page.item(:CheckSpousePermanent).value('レ')
+elsif personalrelationship == 5
+  report2.page.item(:CheckChildPermanent).value('レ')
+elsif personalrelationship == 6
+  report2.page.item(:CheckGrandchildJapanese).value('レ')
+elsif personalrelationship == 7
+  report2.page.item(:CheckSpouseJapaneseChild).value('レ')
+elsif personalrelationship == 8
+  report2.page.item(:CheckChildMinorJapanese).value('レ')
+elsif personalrelationship == 9
+  report2.page.item(:CheckUnder6).value('レ') 
+else
+  report2.page.item(:CheckStatusOthers).value('レ') 
+end
+report2.page.item(:StatusOthers).value('別紙参照')
+report2.page.item(:JapaneseAuthorities).value('愛媛県新居浜市役所')
+report2.page.item(:JapaneseRegistrationYear).value('2013')
+report2.page.item(:JapaneseRegistrationMonth).value('03')
+report2.page.item(:JapaneseRegistrationDay).value('15')
+report2.page.item(:ForeignAuthorities).value('在大阪フィリピン領事館')
+report2.page.item(:ForeignRegistrationYear).value('2013')
+report2.page.item(:ForeignRegistrationMonth).value('03')
+report2.page.item(:ForeignRegistrationDay).value('20')
+report2.page.item(:BelongsCompanyName).value('testcompany')
+report2.page.item(:BelongsBranchName).value('セブ支店')
+report2.page.item(:BelongsCompanyAddress).value('愛媛県四国中央市三島中央５丁目３−４６')
+report2.page.item(:BelongsCompanyTelephone).value('0896-99-9999')
+report2.page.item(:AnnualIncome).value('1,000,000')
+if methodofsupport == 1
+  report2.page.item(:CheckExpenseSelf).value('レ')
+elsif methodofsupport == 2
+  report2.page.item(:CheckExpenseSupporterAbroad).value('レ')
+elsif methodofsupport == 3
+  report2.page.item(:CheckExpenseSupporter).value('レ')
+elsif methodofsupport == 4
+  report2.page.item(:CheckExpenseGuarantor).value('レ')
+else
+  report2.page.item(:CheckExpenseOthers).value('レ')
+end
+report2.page.item(:SelfYen).value('30,000')
+if remittancesfromabroad == 1
+  report2.page.item(:CheckCarryingAbroad).value('レ')
+elsif remmitancesfromabroad == 2
+  report2.page.item(:CheckRemittancesAbroad).value('レ')
+else
+  report2.page.item(:CheckRemittancesOthers).value('レ')
+end
+report2.page.item(:CarryingAbroadYen).value('200,000')
+report2.page.item(:CarryingCashName).value('Vicente Aloba Bayon-on')
+report2.page.item(:CarryingCashDate).value('2010年５月５日')
+
 report.generate(filename: 'kikankoshinP1.pdf')
+report2.generate(filename: 'kikankoshinP2.pdf')
 
 puts 'Done!'
